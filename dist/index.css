@@ -1,0 +1,23 @@
+.sns_share_buttons {
+  text-align: center;
+}
+
+.sns_share_buttons * {
+  display: inline-block;
+  margin: 0 5px;
+  vertical-align: bottom;
+}
+
+.sns_share_buttons_size_small {
+  height: 1.5em;
+}
+.sns_share_buttons_size_small i {
+  vertical-align: top;
+  line-height: 0.5em;
+}
+
+.sns_share_buttons_size_large {
+}
+
+.sns_share_buttons_size_large i {
+}

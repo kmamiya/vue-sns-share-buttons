@@ -1,0 +1,19 @@
+{
+  "name": "vue-sns-share-buttons",
+  "version": "1.0.0",
+  "description": "The \"Share\" button for some SNS that implemented as Vue.js component.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmamiya/vue-sns-share-buttons.git"
+  },
+  "author": "Kentarou Mamiya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kmamiya/vue-sns-share-buttons/issues"
+  },
+  "homepage": "https://github.com/kmamiya/vue-sns-share-buttons#readme"
+}
