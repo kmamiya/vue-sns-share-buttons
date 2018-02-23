@@ -15,23 +15,11 @@ The "Share" button for some SNS that implemented as Vue.js component.
 
 or
 
-`'vue-sns-share-buttons': 'github:kmamiya/vue-sns-share-buttons'` to `package.json` and run `npm install`.
+`npm install github:kmamiya/vue-sns-share-buttons`
 
 # How to use
 
-1. add `dist/index.css` to your CSS loadig tree
-1. add `dist/index.js` to your JavaScript loading tree
-1. the fllowing;
-```
-new Vue({
-  el: '#root',
-  mixins: [
-    snsShareButtons()
-  ]
-});
-```
-
-`<sns_share_buttons url="https://github.com/kmamiya/vue-sns-share-buttons"></sns_share_buttons>`
+Please see [Example](example/example.html)
 
 # LICENSE
 Copyright (c) 2018 Kentarou Mamiya. See LICENSE for details.
