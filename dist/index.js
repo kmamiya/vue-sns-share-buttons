@@ -1,5 +1,8 @@
 (function(root) {
   var snsShareButtons = function(options) {
+    if (options === undefined) {
+      options = { };
+    }
     if (options.use_facebook === undefined) {
       options.use_facebook = true;
     }
