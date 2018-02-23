@@ -21,5 +21,20 @@ or
 
 Please see [Example](example/example.html)
 
+1. add `dist/index.css` to HTML css tree
+1. add `dist/index.js` to HTML javascript tree
+1. add return value of `snsShareButtons()` to Vue.js component's mixins
+1. add `<sns_share_buttons url="<sharing target URL>"></sns_share_buttons>` to HTML
+
+if use the Facebook share button, you need loading `connect.facebook.net/ja_JP/sdk.js`
+
+if use the Twitter tweet button, your need loading `platform.twitter.com/widgets.js`
+
+Plain URL button use Bootstrap CSS as default setting (you can change by plain_url_text and plain_url_button_class option)
+
+# TODO
+
+1. release NPM package
+
 # LICENSE
 Copyright (c) 2018 Kentarou Mamiya. See LICENSE for details.
