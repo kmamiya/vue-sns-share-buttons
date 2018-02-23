@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <link rel="stylesheet"
+       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../dist/index.css" />
+    <script src="../dist/index.js"></script>
+  </head>
+  <body>
+    <div id="default_sample" style="border: solid 1px; margin: 1em;">
+      <h1>Facebook and Twitter</h1>
+      <sns_share_buttons url="https://github.com/kmamiya/vue-sns-share-buttons"></sns_share_buttons>
+    </div>
+    <div id="use_plain_url_sample" style="border: solid 1px; margin: 1em;">
+      <h1>Facebook, Twitter, and Plain URL</h1>
+      <sns_share_buttons url="https://github.com/kmamiya/vue-sns-share-buttons"></sns_share_buttons>
+    </div>
+
+    <div id="fb-root"></div>
+    <script type="text/javascript">
+      // Load Facebook API.
+      (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.12";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+      // Load Twitter API.
+      window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function(f) {
+          t._e.push(f);
+        };
+
+        return t;
+      }(document, "script", "twitter-wjs"));
+
+      // Start; default setting (Facebook and Twitter)
+      new Vue({
+        el: '#default_sample',
+        data: function() { return { }; },
+        mixins: [
+          snsShareButtons()
+        ]
+      });
+
+      // Start; use plain URL button.
+      new Vue({
+        el: '#use_plain_url_sample',
+        data: function() { return { }; },
+        mixins: [
+          snsShareButtons({
+            use_plain_url: true,
+            showPlainUrl: function(url) {
+              alert(url);
+            }
+          })
+        ]
+      });
+    </script>
+  </body>
+</html>
