@@ -101,6 +101,9 @@
                 );
               });
             }
+            if (options.use_facebook) {
+              FB.XFBML.parse();
+            }
           }
         }
       }
