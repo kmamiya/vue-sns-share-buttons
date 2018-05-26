@@ -1,5 +1,6 @@
 .sns_share_buttons {
   text-align: center;
+  font-size: 14px;
 }
 
 .sns_share_buttons * {
@@ -17,7 +18,10 @@
 }
 
 .twitter_button_wrap {
-  margin-bottom: 3px;
+  margin-bottom: -1px;
+}
+
+.fb-share-button {
 }
 
 .sns_share_buttons_size_large {
