@@ -72,7 +72,7 @@
             twitterIntentUrl: function() {
               var return_value = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(this.url);
               if (this.twitter_message !== undefined) {
-                return_value += '&text=' + encodeURIComponent(this.tiwtter_message);
+                return_value += '&text=' + encodeURIComponent(this.twitter_message);
               }
               if (this.twitter_hashtags !== undefined) {
                 return_value += '&hashtags=' + this.twitter_hashtags;
