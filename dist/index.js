@@ -36,7 +36,7 @@
     }
     if (options.use_twitter) {
       template += twitterButtonTemplate();
-      data_template.twitter_hashtags = options.twitter_hastags;
+      data_template.twitter_hashtags = options.twitter_hashtags;
       data_template.twitter_via      = options.twitter_via;
     }
     if (options.use_plain_url) {
