@@ -17,7 +17,7 @@
       return '<div class="fb-share-button" :data-href="url" :data-layout="fb_button_layout" :data-mobile_iframe="fb_use_mobile_iframe" :data-size="button_size"></div>';
     };
     var twitterButtonTemplate = function() {
-      return '<a class="twitter-share-button" :href="twitterIntentUrl" :data-size="button_size">Twitter</a>';
+      return '<div :id="twitter_replace_id" class="sns_share_buttons_size_small twitter_button_wrap"></div>';
     };
     var plainUrlButtonTemplate = function() {
       return '<button type="button" :class="plainUrlButtonClass" v-on:click.prevent="plainUrl" v-html="plain_url_text"></button>';
@@ -36,8 +36,8 @@
     }
     if (options.use_twitter) {
       template += twitterButtonTemplate();
-      data_template.twitter_hashtags = options.twitter_hashtags;
-      data_template.twitter_via      = options.twitter_via;
+      data_template.twitter_hashtags   = options.twitter_hashtags;
+      data_template.twitter_via        = options.twitter_via;
     }
     if (options.use_plain_url) {
       template += plainUrlButtonTemplate();
@@ -69,23 +69,37 @@
             plainUrlButtonClass: function() {
               return 'sns_share_buttons_size_' + this.button_size + ' ' + this.plain_url_button_class;
             },
-            twitterIntentUrl: function() {
-              var return_value = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(this.url);
-              if (this.twitter_message !== undefined) {
-                return_value += '&text=' + encodeURIComponent(this.twitter_message);
-              }
-              if (this.twitter_hashtags !== undefined) {
-                return_value += '&hashtags=' + this.twitter_hashtags;
-              }
-              if (this.twitter_via !== undefined) {
-                return_value += '&via=' + this.twitter_via;
-              }
-              return return_value;
+            twitter_replace_id: function() {
+              return 'twitter_' + (new Date()).getTime() + '_' + Math.floor(Math.random() * 100);
             }
           },
           methods: {
             plainUrl: function() {
               options.showPlainUrl(this.url);
+            }
+          },
+          mounted: function() {
+            if (options.use_twitter) {
+              var params = {
+                size: this.button_size,
+              };
+              if (this.twitter_message !== undefined) {
+                params.text = this.twitter_message;
+              }
+              if (this.twitter_hashtags !== undefined) {
+                params.hashtags = this.twitter_hashtags;
+              }
+              if (this.twitter_via !== undefined) {
+                params.via = this.twitter_via;
+              }
+              var _this = this;
+              twttr.ready(function() {
+                twttr.widgets.createShareButton(
+                  _this.url,
+                  document.getElementById(_this.twitter_replace_id),
+                  params
+                );
+              });
             }
           }
         }
