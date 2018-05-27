@@ -102,7 +102,9 @@
               });
             }
             if (options.use_facebook) {
-              FB.XFBML.parse();
+              if (FB !== undefined && FB.XFBML !== undefined) {
+                FB.XFBML.parse();
+              }
             }
           }
         }
